@@ -1,0 +1,11 @@
+read_file -format verilog {./da2a.v}
+create_clock -name "CLK" -period 40 -waveform { 0 20 }  { CLK }
+set_fix_hold CLK
+set_dont_touch_network CLK
+compile -exact_map
+remove_unconnected_ports -blast_buses [find -hierarchy cell "*"]
+write_file -format verilog -hierarchy -output gcd_syn.v
+write_sdf -version 1.0 gcd_syn.sdf
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
+report_area
+exit

@@ -1,0 +1,29 @@
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : GCD
+Version: K-2015.06-SP1
+Date   : Fri Jun  5 22:10:24 2020
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: Y_reg[7] (positive level-sensitive latch)
+  Endpoint: Y[7] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  Y_reg[7]/G (TLATX1)                      0.00       0.00 r
+  Y_reg[7]/Q (TLATX1)                      0.35       0.35 r
+  Y[7] (out)                               0.00       0.35 r
+  data arrival time                                   0.35
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
